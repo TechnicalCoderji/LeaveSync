@@ -1,0 +1,50 @@
+{% extends "base_app.html" %}
+
+{% block content %}
+<div class="profile">
+    <h1>Profile</h1>
+
+    <div class="user-info">
+        <p><strong>Username:</strong> {{ user.username }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Organization:</strong> {{ user_info.organization }}</p>
+        <p><strong>Role:</strong> {% if is_manager %} Manager {% else %} Employee {% endif %}</p>
+        
+        {% if not is_manager %}
+        <p><strong>Manager Name:</strong> {{ manager_name }}</p>
+        <p><strong>Remaining Leave:</strong> {{ employee_info.remaining_leave }} days</p>
+        {% endif %}
+    </div>
+
+    {% if is_manager %}
+    <hr>
+    <h3>Organization Employees</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Employee Username</th>
+                <th>Email</th>
+                <th>Remaining Leave Balance</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for emp in employees %}
+            <tr>
+                <td>{{ emp.username }}</td>
+                <td>{{ emp.email }}</td>
+                <td>{{ emp.employee_info.remaining_leave }} days</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">No employees found in your organization.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+
+    <div style="margin-top: 20px;">
+        <a href="{% url 'logout' %}" class="btn logout-btn">Logout</a>
+    </div>
+</div>
+{% endblock %}

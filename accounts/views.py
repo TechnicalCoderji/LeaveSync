@@ -5,7 +5,7 @@ from .forms import RegisterForm, LoginForm
 
 def register_view(request):
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect('dashboard')
 
     form = RegisterForm(request.POST or None)
 
@@ -14,14 +14,14 @@ def register_view(request):
             user = form.save()
             login(request, user)
             messages.success(request, "Account created successfully")
-            return redirect('home')
+            return redirect('dashboard')
 
     return render(request, 'auth/register.html', {'form': form})
 
 
 def login_view(request):
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect('dashboard')
 
     form = LoginForm(request, data=request.POST or None)
 
@@ -30,7 +30,7 @@ def login_view(request):
             user = form.get_user()
             login(request, user)
             messages.success(request, "Logged in successfully")
-            return redirect('home')
+            return redirect('dashboard')
 
     return render(request, 'auth/login.html', {'form': form})
 
