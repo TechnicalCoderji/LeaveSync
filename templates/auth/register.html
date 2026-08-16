@@ -16,6 +16,13 @@
     <label>Email</label>
     <input type="email" name="email" required>
 
+    <label>Organization</label>
+    <input type="text" name="organization" required>
+
+    <label>
+        <input type="checkbox" name="is_manager"> Register as Manager
+    </label>
+
     <label>Password</label>
     <input type="password" name="password1" required>
 
@@ -23,13 +30,12 @@
     <input type="password" name="password2" required>
 
     {% for field in form %}
-    {% for error in field.errors %}
-    <div class="error">{{ error }}</div>
-    {% endfor %}
+        {% for error in field.errors %}
+        <div class="error">{{ error }}</div>
+        {% endfor %}
     {% endfor %}
 
     <button type="submit">Register</button>
-
 </form>
 
 <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>

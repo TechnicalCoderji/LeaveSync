@@ -6,3 +6,11 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.username
+
+class UserInfo(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='user_info')
+    is_manager = models.BooleanField(default=False)
+    organization = models.CharField(max_length=255)
+
+    def __str__(self):
+        return f"{self.user.username} - {self.organization}"

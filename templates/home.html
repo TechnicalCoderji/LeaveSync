@@ -6,14 +6,86 @@
 
     <h1>Welcome, {{ user.name|default:user.username }} 👋</h1>
 
-    <p>You are successfully logged in.</p>
-
     <div class="user-info">
         <p><strong>Username:</strong> {{ user.username }}</p>
         <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Organization:</strong> {{ user_info.organization }}</p>
+        <p><strong>Role:</strong> {% if is_manager %} Manager {% else %} Employee {% endif %}</p>
+        
+        {% if not is_manager %}
+        <p><strong>Remaining Leave:</strong> {{ employee_info.remaining_leave }} days</p>
+        {% endif %}
     </div>
 
-    <div class="actions">
+    <hr>
+
+    {% if not is_manager %}
+    <h3>Request Leave</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Start Date</label>
+        <input type="date" name="start_date" required>
+
+        <label>End Date</label>
+        <input type="date" name="end_date" required>
+
+        <label>Total Leave Days</label>
+        <input type="number" name="leave_day" required min="1">
+
+        <label>Reason</label>
+        <input type="text" name="reason" required>
+
+        <button type="submit">Submit Request</button>
+    </form>
+    <hr>
+    {% endif %}
+
+    <h3>Leave Requests</h3>
+    <table border="1" cellpadding="8" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Req ID</th>
+                <th>Employee</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Days</th>
+                <th>Reason</th>
+                <th>Status</th>
+                {% if is_manager %}
+                <th>Action</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for req in leave_requests %}
+            <tr>
+                <td>#{{ req.id }}</td>
+                <td>{{ req.user.username }}</td>
+                <td>{{ req.start_date }}</td>
+                <td>{{ req.end_date }}</td>
+                <td>{{ req.leave_day }}</td>
+                <td>{{ req.reason }}</td>
+                <td><strong>{{ req.status }}</strong></td>
+                {% if is_manager %}
+                <td>
+                    {% if req.status == 'Pending' %}
+                    <a href="{% url 'update_leave_status' req.id 'Approved' %}">Approve</a> |
+                    <a href="{% url 'update_leave_status' req.id 'Rejected' %}">Reject</a>
+                    {% else %}
+                    Processed
+                    {% endif %}
+                </td>
+                {% endif %}
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="{% if is_manager %}8{% else %}7{% endif %}">No leave requests found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="actions" style="margin-top: 20px;">
         <a href="{% url 'logout' %}" class="btn logout-btn">Logout</a>
     </div>
 
