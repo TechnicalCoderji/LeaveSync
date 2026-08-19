@@ -8,6 +8,11 @@ from .forms import LeaveRequestForm
 
 User = get_user_model()
 
+def landing_view(request):
+    if request.user.is_authenticated:
+        return redirect('dashboard')
+    return render(request, 'landing.html')
+
 def calculate_business_days(start_date, end_date):
     """Calculates total days between two dates excluding weekends."""
     days = 0
