@@ -1,0 +1,746 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fdfcf6;
+    color: #171717;
+    min-height: 100vh;
+}
+
+.navbar {
+    height: 64px;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 32px;
+}
+
+#logo {
+    height: 60px;          
+    width: auto;           
+    max-width: 160px;      
+    object-fit: contain;   
+    display: block;
+}
+
+.chevron-icon {
+    width: 14px;
+    height: 14px;
+    color: #1f2937; /* Inherits or sets text color */
+    margin-left: 6px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.nav-links {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+    gap: 34px;
+    margin-left: 70px;
+}
+
+.nav-link {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    color: #222;
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.nav-link.active::after {
+    content: "";
+
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 31px;
+    height: 4px;
+
+    background: #e8b400;
+    border-radius: 4px 4px 0 0;
+}
+
+/* =========================================================
+   PROFILE MENU
+========================================================= */
+
+.profile-menu {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+}
+
+
+/* =========================================================
+   PROFILE TRIGGER
+========================================================= */
+
+.profile-trigger {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 5px 7px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: #171717;
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    transition:
+        background 0.18s ease;
+}
+
+
+.profile-trigger:hover {
+    background: #f5f5f5;
+}
+
+
+/* =========================================================
+   AVATAR
+========================================================= */
+
+.avatar {
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    background: #ddd;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   PROFILE NAME
+========================================================= */
+
+.profile-name {
+    font-size: 15px;
+
+    font-weight: 500;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   CHEVRON
+========================================================= */
+
+.chevron-icon {
+    width: 15px;
+    height: 15px;
+
+    color: #444;
+
+    transition:
+        transform 0.22s ease;
+}
+
+
+/* Rotate when open */
+
+.profile-menu.open .chevron-icon {
+    transform: rotate(180deg);
+}
+
+
+/* =========================================================
+   DROPDOWN
+========================================================= */
+
+.profile-dropdown {
+    position: absolute;
+
+    top: calc(100% + 8px);
+
+    right: 0;
+
+    width: 175px;
+
+    padding: 6px;
+
+    background: #ffffff;
+
+    border: 1px solid #dedede;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.12);
+
+    z-index: 1000;
+
+
+    /* Hidden state */
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(-6px)
+        scale(0.98);
+
+    transform-origin: top right;
+
+    pointer-events: none;
+
+
+    transition:
+        opacity 0.18s ease,
+        transform 0.18s ease,
+        visibility 0.18s ease;
+}
+
+
+/* =========================================================
+   OPEN DROPDOWN
+========================================================= */
+
+.profile-menu:hover .profile-dropdown,
+.profile-menu.open .profile-dropdown {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    /* transform:
+        translateY(0)
+        scale(1); */
+
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   DROPDOWN ITEM
+========================================================= */
+
+.dropdown-item {
+    width: 100%;
+
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 0 10px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: transparent;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease;
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+.logout-item {
+    color: #dc2626;
+}
+
+
+.logout-item:hover {
+    background: #fee2e2;
+
+    color: #b91c1c;
+}
+
+
+/* =========================================================
+   DROPDOWN ICON
+========================================================= */
+
+.dropdown-icon {
+    width: 18px;
+
+    font-size: 16px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+.arrow {
+    font-size: 14px;
+    margin-left: 2px;
+}
+
+
+/* =========================
+    MAIN CONTAINER
+========================= */
+
+.container {
+    width: calc(100% - 60px);
+    max-width: 1250px;
+
+    margin: 20px auto 40px;
+}
+
+
+/* =========================
+    CARDS
+========================= */
+
+.top-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 14px;
+}
+
+.card {
+    background: #ffffff;
+
+    border: 1px solid #dedede;
+    border-radius: 9px;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.14);
+}
+
+
+/* =========================
+    PROFILE INFO
+========================= */
+
+.profile-card {
+    min-height: 135px;
+    padding: 16px 18px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.info-icon {
+    width: 18px;
+    height: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #333;
+    font-size: 16px;
+}
+
+.info-label {
+    font-weight: 400;
+}
+
+
+/* =========================
+    LEAVE BALANCE
+========================= */
+
+.balance-card {
+    min-height: 135px;
+
+    padding: 16px 18px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.balance-content {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.remaining {
+    text-align: center;
+
+    min-width: 180px;
+}
+
+.remaining-number {
+    color: #dba900;
+
+    font-size: 54px;
+    line-height: 50px;
+    font-weight: 600;
+}
+
+.remaining-text {
+    margin-top: 4px;
+    font-size: 14px;
+}
+
+.balance-divider {
+    width: 1px;
+    height: 67px;
+    background: #e0e0e0;
+}
+
+.balance-chart {
+    width: 90px;
+    height: 90px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.donut {
+    width: 82px;
+    height: 82px;
+
+    border-radius: 50%;
+
+    background:
+        conic-gradient(
+            #e0ae00 0deg 86.4deg,
+            #dddddd 86.4deg 360deg
+        );
+
+    position: relative;
+}
+
+.donut::after {
+    content: "";
+
+    position: absolute;
+
+    width: 62px;
+    height: 62px;
+
+    left: 10px;
+    top: 10px;
+
+    border-radius: 50%;
+    background: white;
+}
+
+.donut-text {
+    position: absolute;
+    z-index: 2;
+
+    text-align: center;
+
+    font-size: 12px;
+    line-height: 17px;
+}
+
+
+/* =========================
+    REQUEST LEAVE
+========================= */
+
+.request-card {
+    padding: 16px 18px;
+
+    margin-bottom: 14px;
+}
+
+.request-card .card-title {
+    margin-bottom: 12px;
+}
+
+.request-form {
+    border-top: 1px solid #dedede;
+
+    padding-top: 13px;
+
+    display: grid;
+
+    grid-template-columns:
+        auto
+        192px
+        auto
+        192px
+        1fr
+        155px;
+
+    gap: 10px;
+
+    align-items: center;
+}
+
+.field-label {
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.input {
+    height: 37px;
+
+    border: 1px solid #cfcfcf;
+    border-radius: 6px;
+
+    padding: 0 11px;
+
+    font-size: 13px;
+    font-family: inherit;
+
+    background: white;
+
+    outline: none;
+}
+
+.input:focus {
+    border-color: #d5a900;
+    box-shadow: 0 0 0 2px rgba(220, 174, 0, 0.12);
+}
+
+.reason-input {
+    width: 100%;
+}
+
+.submit-btn {
+    height: 38px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #eab500;
+
+    color: #171717;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 2px 3px rgba(0, 0, 0, 0.15);
+
+    transition: 0.15s ease;
+}
+
+.submit-btn:hover {
+    background: #dca900;
+    transform: translateY(-1px);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================
+    REQUEST TABLE
+========================= */
+
+.requests-card {
+    padding: 13px 0 0;
+    overflow: hidden;
+}
+
+.requests-card .card-title {
+    padding: 0 12px;
+    margin-bottom: 10px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+    font-size: 13px;
+}
+
+th,
+td {
+    border: 1px solid #dddddd;
+
+    padding: 10px 12px;
+
+    text-align: left;
+
+    white-space: nowrap;
+}
+
+th {
+    background: #fafafa;
+    font-weight: 700;
+}
+
+tbody tr {
+    background: #ffffff;
+}
+
+tbody tr:hover {
+    background: #fffdf1;
+}
+
+.status {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 4px 10px;
+
+    border-radius: 14px;
+
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.approved {
+    background: #c8f0d4;
+    color: #176b35;
+}
+
+.pending {
+    background: #ffe5a3;
+    color: #735200;
+}
+
+.rejected {
+    background: #f5caca;
+    color: #8b2222;
+}
+
+
+/* =========================
+    RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 0 18px;
+    }
+
+    .nav-links {
+        margin-left: 20px;
+    }
+
+    .container {
+        width: calc(100% - 30px);
+    }
+
+    .request-form {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .field-label {
+        display: none;
+    }
+
+    .submit-btn {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .navbar {
+        height: auto;
+        min-height: 64px;
+
+        flex-wrap: wrap;
+        padding: 12px 15px;
+        gap: 12px;
+    }
+
+    .nav-links {
+        order: 3;
+        width: 100%;
+        height: 42px;
+        justify-content: center;
+        margin: 0;
+    }
+
+    .top-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-name {
+        display: none;
+    }
+
+    .request-form {
+        grid-template-columns: 1fr;
+    }
+
+    .balance-content {
+        justify-content: space-between;
+    }
+
+    .remaining-number {
+        font-size: 46px;
+    }
+}

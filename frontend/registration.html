@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LeaveSync - Registration</title>
+
+    <link rel="stylesheet" href="auth.css">
+</head>
+
+<body>
+    <main class="auth-page">
+        <div class="auth-card registration-card">
+            <!-- LOGO -->
+            <div class="auth-logo">
+                <img src="logo.png" alt="LeaveSync Logo">
+            </div>
+
+            <!-- HEADING -->
+            <div class="auth-heading">
+                <h1>Create Account</h1>
+                <p>
+                    Register your LeaveSync account
+                </p>
+            </div>
+
+            <!-- REGISTRATION TYPE -->
+            <div class="registration-tabs">
+                <button type="button" class="registration-tab active" id="employeeTab">
+                    Register as Employee
+                </button>
+                <button type="button" class="registration-tab" id="managerTab">
+                    Register as Manager
+                </button>
+            </div>
+
+            <!-- REGISTRATION FORM -->
+            <form class="auth-form">
+                <!-- NAME -->
+                <div class="form-group">
+                    <label for="name">
+                        Name
+                    </label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" autocomplete="name" required>
+                </div>
+
+                <!-- USERNAME -->
+                <div class="form-group">
+                    <label for="username">
+                        Username
+                    </label>
+                    <input type="text" id="username" name="username" placeholder="Choose a username" autocomplete="username" required>
+                </div>
+
+                <!-- EMAIL -->
+                <div class="form-group">
+                    <label for="email">
+                        Email
+                    </label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" autocomplete="email" required>
+                </div>
+
+                <!-- PASSWORD -->
+                <div class="form-group">
+                    <label for="password">
+                        Password
+                    </label>
+                    <input type="password" id="password" name="password" placeholder="Create a password" autocomplete="new-password" required>
+                </div>
+
+                <!-- ORGANIZATION -->
+                <div class="form-group">
+                    <label for="organization">
+                        Organization Name
+                    </label>
+                    <input type="text" id="organization" name="organization" placeholder="Enter organization name" required>
+                </div>
+
+                <!-- REGISTER -->
+                <button type="submit" class="primary-btn">
+                    Create Account
+                </button>
+            </form>
+
+
+            <!-- BOTTOM SWITCH -->
+            <div class="auth-switch">
+                <span>
+                    Already have an account?
+                </span>
+                <a href="login.html"> Login </a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const employeeTab = document.getElementById("employeeTab");
+        const managerTab = document.getElementById("managerTab");
+
+        employeeTab.addEventListener("click", function () {
+            employeeTab.classList.add("active");
+            managerTab.classList.remove("active");
+        });
+
+        managerTab.addEventListener("click", function () {
+            managerTab.classList.add("active");
+            employeeTab.classList.remove("active");
+        });
+    </script>
+
+</body>
+</html>

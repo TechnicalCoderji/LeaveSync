@@ -1,0 +1,904 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #fdfcf6;
+
+    color: #171717;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.landing-navbar {
+    width: 100%;
+
+    height: 64px;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e5e5e5;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 24px;
+}
+
+
+/* ---------------------------------------------------------
+   LOGO
+--------------------------------------------------------- */
+
+.landing-brand {
+    display: flex;
+
+    align-items: center;
+}
+
+
+.landing-brand img {
+    height: 36px;
+
+    width: auto;
+
+    max-width: 130px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* ---------------------------------------------------------
+   REGISTER BUTTON
+--------------------------------------------------------- */
+
+.register-btn {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 76px;
+
+    height: 32px;
+
+    padding: 0 14px;
+
+    border-radius: 6px;
+
+    background: #eab500;
+
+    color: #171717;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.15);
+
+    transition: 0.15s ease;
+}
+
+
+.register-btn:hover {
+    background: #dca900;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero-section {
+    min-height: 325px;
+
+    display: flex;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 65px 20px 30px;
+}
+
+
+.hero-content {
+    max-width: 1200px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+/* ---------------------------------------------------------
+   HERO HEADING
+--------------------------------------------------------- */
+
+.hero-content h1 {
+    color: #202020;
+
+    font-size: 100px;
+
+    line-height: 115px;
+
+    font-weight: 700;
+
+    margin-bottom: 7px;
+}
+
+
+/* ---------------------------------------------------------
+   HERO DESCRIPTION
+--------------------------------------------------------- */
+
+.hero-content p {
+    max-width: 700px;
+
+    color: #777;
+
+    font-size: 20px;
+
+    line-height: 25px;
+
+    margin-bottom: 12px;
+}
+
+
+/* ---------------------------------------------------------
+   HERO BUTTON
+--------------------------------------------------------- */
+
+.hero-btn {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    height: 24px;
+
+    padding: 0 12px;
+
+    background: #eab500;
+
+    color: #171717;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    border-radius: 2px;
+
+    transition: 0.15s ease;
+}
+
+
+.hero-btn:hover {
+    background: #dca900;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   HOW IT WORKS
+========================================================= */
+
+.how-section {
+    width: 100%;
+
+    max-width: 720px;
+
+    margin: 0 auto;
+
+    padding: 50px 20px 80px;
+}
+
+
+/* ---------------------------------------------------------
+   TITLE
+--------------------------------------------------------- */
+
+.how-section h2 {
+    text-align: center;
+
+    color: #555;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   WORKFLOW
+========================================================= */
+
+.workflow {
+    width: 100%;
+
+    max-width: 550px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    grid-template-rows: auto auto;
+
+    column-gap: 45px;
+
+    row-gap: 26px;
+
+    position: relative;
+}
+
+
+/* =========================================================
+   WORKFLOW CARD
+========================================================= */
+
+.workflow-step {
+    position: relative;
+
+    width: 100%;
+}
+
+
+.workflow-card {
+    min-height: 68px;
+
+    padding: 10px;
+
+    background: #ffb900;
+
+    border-radius: 7px;
+
+    box-shadow:
+        0 2px 3px rgba(0, 0, 0, 0.12);
+}
+
+
+.workflow-card h3 {
+    color: #171717;
+
+    font-size: 12px;
+
+    line-height: 15px;
+
+    font-weight: 700;
+
+    margin-bottom: 3px;
+}
+
+
+.workflow-card p {
+    color: #333;
+
+    font-size: 8px;
+
+    line-height: 11px;
+}
+
+
+/* =========================================================
+   ARROWS
+========================================================= */
+
+.arrow {
+    position: absolute;
+
+    color: #3b82d0;
+
+    font-size: 28px;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    z-index: 2;
+}
+
+
+/* Step 1 → Step 2 */
+
+.arrow-right {
+    right: -34px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+
+/* Step 2 ↓ Step 3 */
+
+.arrow-down {
+    left: 50%;
+
+    bottom: -29px;
+
+    transform: translateX(-1950%);
+}
+
+
+/* Step 3 ← Step 4 */
+
+.arrow-left {
+    left: -34px;
+
+    top: 50%;
+
+    transform: translate(2810%,-195%);
+}
+
+
+/* Step 4 ↑ Step 1 */
+
+.arrow-up {
+    left: 50%;
+    top: -29px;
+
+    transform: translate(-630%, 165%);
+}
+
+
+/* =========================================================
+   CONTACT SECTION
+========================================================= */
+
+.contact-section {
+    position: relative;
+
+    min-height: 310px;
+
+    background: #a6a6a6;
+
+    margin-top: 25px;
+
+    padding: 58px 20px 15px;
+
+    overflow: hidden;
+}
+
+
+/*
+    Curved top edge
+*/
+
+.contact-section::before {
+    content: "";
+
+    position: absolute;
+
+    top: -65px;
+
+    left: -10%;
+
+    width: 120%;
+
+    height: 100px;
+
+    background: #fdfcf6;
+
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   CONTACT CONTENT
+========================================================= */
+
+.contact-content {
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+
+    max-width: 520px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+/* ---------------------------------------------------------
+   CONTACT TITLE
+--------------------------------------------------------- */
+
+.contact-content h2 {
+    color: #555;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    margin-bottom: 12px;
+}
+
+
+.contact-content h2 span {
+    color: #eab500;
+}
+
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+.contact-form {
+    width: 100%;
+
+    max-width: 400px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+
+/* ---------------------------------------------------------
+   NAME + EMAIL
+--------------------------------------------------------- */
+
+.contact-row {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 6px;
+}
+
+
+/* ---------------------------------------------------------
+   INPUTS
+--------------------------------------------------------- */
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+
+    border: none;
+
+    border-radius: 3px;
+
+    background: #ffffff;
+
+    color: #333;
+
+    font-family: inherit;
+
+    font-size: 8px;
+
+    outline: none;
+
+    padding: 6px 8px;
+}
+
+
+.contact-form input {
+    height: 19px;
+}
+
+
+.contact-form textarea {
+    height: 58px;
+
+    resize: none;
+}
+
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #888;
+}
+
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    box-shadow:
+        0 0 0 2px rgba(234, 181, 0, 0.45);
+}
+
+
+/* =========================================================
+   CONTACT SUBMIT
+========================================================= */
+
+.contact-submit {
+    width: 48px;
+
+    height: 19px;
+
+    margin-top: 5px;
+
+    border: none;
+
+    border-radius: 1px;
+
+    background: #eab500;
+
+    color: #171717;
+
+    font-family: inherit;
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.15s ease;
+}
+
+
+.contact-submit:hover {
+    background: #dca900;
+}
+
+
+/* =========================================================
+   FOOTER BOTTOM
+========================================================= */
+
+.footer-bottom {
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+
+    max-width: 700px;
+
+    margin: 32px auto 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+/* ---------------------------------------------------------
+   FOOTER LOGO
+--------------------------------------------------------- */
+
+.footer-brand img {
+    width: 70px;
+
+    height: auto;
+
+    max-height: 25px;
+
+    object-fit: contain;
+
+    filter: grayscale(100%);
+
+    opacity: 0.75;
+}
+
+
+/* ---------------------------------------------------------
+   FOOTER LINKS
+--------------------------------------------------------- */
+
+.footer-links {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+
+.footer-links a {
+    color: #555;
+
+    text-decoration: none;
+
+    font-size: 7px;
+
+    font-weight: 500;
+}
+
+
+.footer-links a:hover {
+    color: #222;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
+
+.copyright {
+    position: relative;
+
+    z-index: 1;
+
+    text-align: center;
+
+    color: #777;
+
+    font-size: 6px;
+
+    margin-top: 20px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .landing-navbar {
+        padding: 0 18px;
+    }
+
+
+    .hero-section {
+        min-height: 300px;
+
+        padding-top: 55px;
+    }
+
+
+    .hero-content h1 {
+        font-size: 24px;
+
+        line-height: 30px;
+    }
+
+
+    .how-section {
+        padding-top: 35px;
+
+        padding-bottom: 65px;
+    }
+
+
+    .workflow {
+        max-width: 500px;
+
+        column-gap: 35px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 520px) {
+
+    .landing-navbar {
+        height: 58px;
+    }
+
+
+    .landing-brand img {
+        height: 31px;
+    }
+
+
+    .register-btn {
+        height: 30px;
+
+        min-width: 73px;
+
+        font-size: 10px;
+    }
+
+
+    .hero-section {
+        min-height: 285px;
+
+        padding: 50px 18px 25px;
+    }
+
+
+    .hero-content h1 {
+        font-size: 22px;
+
+        line-height: 28px;
+    }
+
+
+    .hero-content p {
+        font-size: 10px;
+
+        line-height: 15px;
+    }
+
+
+    .how-section {
+        padding: 30px 15px 65px;
+    }
+
+
+    .how-section h2 {
+        font-size: 18px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .workflow {
+        max-width: 330px;
+
+        column-gap: 28px;
+
+        row-gap: 28px;
+    }
+
+
+    .workflow-card {
+        min-height: 75px;
+
+        padding: 9px;
+    }
+
+
+    .workflow-card h3 {
+        font-size: 10px;
+
+        line-height: 13px;
+    }
+
+
+    .workflow-card p {
+        font-size: 7px;
+
+        line-height: 10px;
+    }
+
+
+    .arrow {
+        font-size: 23px;
+    }
+
+
+    .arrow-right {
+        right: -25px;
+    }
+
+
+    .arrow-left {
+        left: -25px;
+    }
+
+
+    .contact-section {
+        min-height: 340px;
+
+        padding-top: 60px;
+    }
+
+
+    .contact-section::before {
+        top: -55px;
+
+        height: 90px;
+    }
+
+
+    .contact-content {
+        max-width: 330px;
+    }
+
+
+    .contact-content h2 {
+        font-size: 18px;
+    }
+
+
+    .footer-bottom {
+        margin-top: 35px;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+
+    .footer-links {
+        gap: 14px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .hero-section {
+        padding-top: 45px;
+    }
+
+
+    .hero-content h1 {
+        font-size: 20px;
+    }
+
+
+    .workflow {
+        max-width: 300px;
+
+        column-gap: 22px;
+    }
+
+
+    .workflow-card {
+        min-height: 72px;
+    }
+
+
+    .arrow-right {
+        right: -21px;
+    }
+
+
+    .arrow-left {
+        left: -21px;
+    }
+
+}

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeaveSync - Dashboard</title>
+    <link rel="stylesheet" href="employee_dashboard.css">
+    
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="brand">
+            <img src="logo.png" id="logo" alt="LeaveSync Logo">
+        </div>
+        <nav class="nav-links">
+            <a href="#" class="nav-link active">Dashboard</a>
+            <a href="#" class="nav-link">Profile</a>
+        </nav>
+        <!-- PROFILE MENU -->
+        <div class="profile-menu" id="profileMenu">
+            <button type="button" class="profile-trigger" id="profileTrigger" aria-expanded="false">
+                <div class="avatar">AS</div>
+                <span class="profile-name">amansarvaiya</span>
+                <!-- Your SVG -->
+                <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" />
+                </svg>
+            </button>
+
+            <!-- DROPDOWN -->
+            <div class="profile-dropdown" id="profileDropdown">
+                <button type="button" class="dropdown-item logout-item">
+                    <span class="dropdown-icon">↪</span>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="container">
+        <!-- TOP CARDS -->
+        <section class="top-grid">
+            <!-- Profile Info -->
+            <div class="card profile-card">
+                <h2 class="card-title">Profile Info</h2>
+                <div class="info-row">
+                    <span class="info-icon">♙</span>
+                    <span class="info-label">
+                        Username: amansarvaiya
+                    </span>
+                </div>
+                <div class="info-row">
+                    <span class="info-icon">▦</span>
+                    <span class="info-label">
+                        Organization: DIP
+                    </span>
+                </div>
+                <div class="info-row">
+                    <span class="info-icon">♙</span>
+                    <span class="info-label">
+                        Role: Employee
+                    </span>
+                </div>
+            </div>
+
+
+            <!-- Leave Balance -->
+            <div class="card balance-card">
+                <h2 class="card-title">Leave Balance</h2>
+                <div class="balance-content">
+                    <div class="remaining">
+                        <div class="remaining-number">
+                            19
+                        </div>
+                        <div class="remaining-text">
+                            days remaining
+                        </div>
+                    </div>
+                    <div class="balance-divider"></div>
+                    <div class="balance-chart">
+                        <div class="donut"></div>
+                        <div class="donut-text">
+                            Used: 6<br>
+                            Total: 25
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- REQUEST LEAVE -->
+        <section class="card request-card">
+            <h2 class="card-title">Request Leave</h2>
+            <form class="request-form">
+                <label class="field-label"> Start Date:</label>
+                <input type="date" class="input" value="2026-08-19">
+                <label class="field-label">End Date:</label>
+                <input type="date" class="input" value="2026-08-25">
+                <input type="text" class="input reason-input" placeholder="Reason...">
+                <button type="submit" class="submit-btn">
+                    Submit Request
+                </button>
+            </form>
+        </section>
+
+
+        <!-- LEAVE REQUESTS TABLE -->
+        <section class="card requests-card">
+            <h2 class="card-title">
+                Leave Requests
+            </h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Req ID</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Calculated Days</th>
+                            <th>Reason</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#1</td>
+                            <td>Aug. 19, 2026</td>
+                            <td>Aug. 25, 2026</td>
+                            <td>5</td>
+                            <td>I want to play MineCraft.</td>
+                            <td>
+                                <span class="status approved">
+                                    Approved
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#2</td>
+                            <td>Aug. 19, 2026</td>
+                            <td>Aug. 25, 2026</td>
+                            <td>4</td>
+                            <td>I want to play MineCraft.</td>
+                            <td>
+                                <span class="status pending">
+                                    Pending
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#3</td>
+                            <td>Aug. 19, 2026</td>
+                            <td>Aug. 25, 2026</td>
+                            <td>1</td>
+                            <td>I want to play MineCraft.</td>
+                            <td>
+                                <span class="status rejected">
+                                    Rejected
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+
+    <script>
+        /*
+         * Automatically calculate leave days
+         * from Start Date and End Date.
+         */
+
+        const startDate = document.querySelectorAll('input[type="date"]')[0];
+        const endDate = document.querySelectorAll('input[type="date"]')[1];
+
+        function calculateDays() {
+
+            const start = new Date(startDate.value);
+            const end = new Date(endDate.value);
+
+            if (
+                !isNaN(start.getTime()) &&
+                !isNaN(end.getTime()) &&
+                end >= start
+            ) {
+                const difference =
+                    end.getTime() - start.getTime();
+
+                const days =
+                    Math.floor(
+                        difference / (1000 * 60 * 60 * 24)
+                    ) + 1;
+
+                console.log("Leave days:", days);
+            }
+        }
+
+        startDate.addEventListener("change", calculateDays);
+        endDate.addEventListener("change", calculateDays);
+
+
+        /*
+         * Demo submit behavior
+         */
+
+        document
+            .querySelector(".request-form")
+            .addEventListener("submit", function(event) {
+
+                event.preventDefault();
+
+                const reason =
+                    document.querySelector(".reason-input").value.trim();
+
+                if (!reason) {
+                    alert("Please enter a reason for your leave.");
+                    return;
+                }
+
+                alert("Leave request submitted successfully!");
+            });
+
+    </script>
+    <script src="script.js"></script>
+
+</body>
+</html>
+

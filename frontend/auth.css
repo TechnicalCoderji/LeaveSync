@@ -1,0 +1,480 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #fdfcf6;
+
+    color: #171717;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   AUTH PAGE
+========================================================= */
+
+.auth-page {
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px 20px;
+}
+
+
+/* =========================================================
+   AUTH CARD
+========================================================= */
+
+.auth-card {
+    width: 100%;
+
+    max-width: 430px;
+
+    background: #ffffff;
+
+    border: 1px solid #dedede;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 3px 7px rgba(0, 0, 0, 0.13);
+
+    padding: 32px 34px 25px;
+}
+
+
+.registration-card {
+    max-width: 470px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.auth-logo {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    margin-bottom: 22px;
+}
+
+
+.auth-logo img {
+    height: 60px;
+
+    width: auto;
+
+    max-width: 180px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.auth-heading {
+    text-align: center;
+
+    margin-bottom: 26px;
+}
+
+
+.auth-heading h1 {
+    color: #171717;
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+    margin-bottom: 7px;
+}
+
+
+.auth-heading p {
+    color: #666;
+
+    font-size: 13px;
+
+    line-height: 19px;
+}
+
+
+/* =========================================================
+   REGISTRATION TABS
+========================================================= */
+
+.registration-tabs {
+    display: flex;
+
+    width: 100%;
+
+    height: 46px;
+
+    margin-bottom: 23px;
+
+    border-bottom: 1px solid #dedede;
+}
+
+
+.registration-tab {
+    position: relative;
+
+    flex: 1;
+
+    border: none;
+
+    background: transparent;
+
+    color: #666;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: color 0.15s ease;
+}
+
+
+.registration-tab:hover {
+    color: #222;
+}
+
+
+.registration-tab.active {
+    color: #171717;
+
+    font-weight: 600;
+}
+
+
+.registration-tab.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: -1px;
+
+    transform: translateX(-50%);
+
+    width: 85%;
+
+    max-width: 150px;
+
+    height: 4px;
+
+    background: #e8b400;
+
+    border-radius: 4px 4px 0 0;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.auth-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 17px;
+}
+
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.form-group label {
+    color: #333;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+.form-group input {
+    width: 100%;
+
+    height: 40px;
+
+    padding: 0 12px;
+
+    border: 1px solid #cfcfcf;
+
+    border-radius: 6px;
+
+    background: #ffffff;
+
+    color: #171717;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    outline: none;
+
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+.form-group input::placeholder {
+    color: #999;
+}
+
+
+.form-group input:hover {
+    border-color: #bdbdbd;
+}
+
+
+.form-group input:focus {
+    border-color: #d5a900;
+
+    box-shadow:
+        0 0 0 2px rgba(220, 174, 0, 0.12);
+}
+
+
+/* =========================================================
+   FORGOT PASSWORD
+========================================================= */
+
+.forgot-row {
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-top: -5px;
+}
+
+
+.forgot-btn {
+    border: none;
+
+    background: transparent;
+
+    color: #b48600;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    padding: 2px 0;
+}
+
+
+.forgot-btn:hover {
+    color: #8d6a00;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+========================================================= */
+
+.primary-btn {
+    width: 100%;
+
+    height: 40px;
+
+    margin-top: 3px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #eab500;
+
+    color: #171717;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 2px 3px rgba(0, 0, 0, 0.15);
+
+    transition:
+        background 0.15s ease,
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+.primary-btn:hover {
+    background: #dca900;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 3px 5px rgba(0, 0, 0, 0.16);
+}
+
+
+.primary-btn:active {
+    transform: translateY(0);
+
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================================
+   BOTTOM LOGIN / SIGNUP SWITCH
+========================================================= */
+
+.auth-switch {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    margin-top: 24px;
+
+    padding-top: 19px;
+
+    border-top: 1px solid #e5e5e5;
+
+    color: #666;
+
+    font-size: 12px;
+
+    line-height: 18px;
+}
+
+
+.auth-switch a {
+    color: #b48600;
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+
+.auth-switch a:hover {
+    color: #8d6a00;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   REGISTRATION FORM
+========================================================= */
+
+.registration-card .auth-form {
+    gap: 14px;
+}
+
+
+.registration-card .auth-heading {
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 550px) {
+
+    .auth-page {
+        padding: 20px 15px;
+    }
+
+
+    .auth-card,
+    .registration-card {
+        padding: 27px 22px 22px;
+    }
+
+
+    .auth-logo {
+        margin-bottom: 18px;
+    }
+
+
+    .auth-logo img {
+        height: 54px;
+    }
+
+
+    .auth-heading h1 {
+        font-size: 23px;
+    }
+
+
+    .registration-tab {
+        font-size: 12px;
+    }
+}
+
+
+@media (max-width: 380px) {
+
+    .auth-card,
+    .registration-card {
+        padding: 24px 17px 20px;
+    }
+
+
+    .registration-tab {
+        font-size: 11px;
+    }
+
+
+    .auth-switch {
+        flex-direction: column;
+
+        gap: 2px;
+    }
+}

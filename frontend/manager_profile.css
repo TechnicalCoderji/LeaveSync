@@ -1,0 +1,567 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fdfcf6;
+    color: #171717;
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   NAVBAR
+   Same style as Manager Dashboard
+========================================================= */
+
+.navbar {
+    height: 64px;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 32px;
+}
+
+
+/* Logo */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 24px;
+    font-weight: 600;
+}
+
+#logo {
+    height: 60px;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
+    display: block;
+}
+
+
+/* Navigation */
+
+.nav-links {
+    display: flex;
+    align-items: stretch;
+
+    height: 100%;
+
+    gap: 34px;
+    margin-left: 70px;
+}
+
+.nav-link {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    color: #222;
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.nav-link.active::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 31px;
+    height: 4px;
+
+    background: #e8b400;
+
+    border-radius: 4px 4px 0 0;
+}
+
+
+/* Right profile */
+
+.profile-menu {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    cursor: pointer;
+}
+
+.avatar {
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    background: #ddd;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.nav-profile-name {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.arrow {
+    font-size: 14px;
+    margin-left: 2px;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.container {
+    width: calc(100% - 60px);
+    max-width: 1250px;
+
+    margin: 20px auto 40px;
+}
+
+
+/* =========================================================
+   COMMON CARD
+   EXACTLY THE SAME CARD STYLE AS DASHBOARD
+========================================================= */
+
+.card {
+    background: #ffffff;
+
+    border: 1px solid #dedede;
+    border-radius: 9px;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.14);
+}
+
+
+/* =========================================================
+   PROFILE PAGE LAYOUT
+========================================================= */
+
+.profile-page {
+    display: grid;
+
+    grid-template-columns: 320px 1fr;
+
+    gap: 18px;
+
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   LEFT PROFILE CARD
+========================================================= */
+
+.identity-card {
+    min-height: 390px;
+
+    padding: 24px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* Profile avatar */
+
+.profile-avatar {
+    width: 90px;
+    height: 90px;
+
+    border-radius: 50%;
+
+    background: #f3f3f3;
+
+    border: 3px solid #e8b400;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #333;
+
+    font-size: 24px;
+    font-weight: 700;
+
+    margin-top: 5px;
+    margin-bottom: 16px;
+}
+
+
+/* Name */
+
+.profile-name {
+    color: #171717;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    margin-bottom: 9px;
+}
+
+
+/* Role */
+
+.role-badge {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #f3f4f6;
+    color: #4b5563;
+
+    padding: 5px 13px;
+
+    border-radius: 14px;
+
+    font-size: 12px;
+    font-weight: 500;
+}
+
+
+/* Divider */
+
+.profile-divider {
+    width: 100%;
+
+    height: 1px;
+
+    background: #e5e5e5;
+
+    margin-top: 25px;
+}
+
+
+/* Logout area */
+
+.profile-actions {
+    width: 100%;
+
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+
+/* Logout */
+
+.logout-btn {
+    width: 100%;
+    height: 38px;
+
+    border: 1px solid #f5b5b5;
+    border-radius: 7px;
+
+    background: #fee2e2;
+    color: #dc2626;
+
+    font-family: inherit;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.15s ease;
+}
+
+.logout-btn:hover {
+    background: #fbcaca;
+    border-color: #ee9999;
+}
+
+.logout-btn:active {
+    transform: translateY(1px);
+}
+
+
+/* =========================================================
+   RIGHT SIDE
+========================================================= */
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+
+    min-width: 0;
+}
+
+
+/* =========================================================
+   PERSONAL / WORK DETAILS CARD
+========================================================= */
+
+.details-card {
+    padding: 16px 18px;
+}
+
+
+/* Card heading
+   Same visual language as .card-title in dashboard
+*/
+
+.profile-card-title,
+.card-title {
+    font-size: 18px;
+    font-weight: 700;
+
+    margin-bottom: 18px;
+}
+
+
+/* Small separator underneath heading */
+
+.profile-card-title {
+    padding-bottom: 10px;
+
+    border-bottom: 1px solid #dedede;
+}
+
+
+/* =========================================================
+   DETAILS GRID
+========================================================= */
+
+.details-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    column-gap: 35px;
+    row-gap: 16px;
+}
+
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+
+    font-size: 13px;
+}
+
+
+.detail-label {
+    color: #666;
+
+    font-size: 12px;
+    font-weight: 500;
+}
+
+
+.detail-value {
+    color: #171717;
+
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   ORGANIZATION EMPLOYEES CARD
+========================================================= */
+
+.leave-overview {
+    padding: 13px 0 0;
+
+    overflow: hidden;
+}
+
+
+/*
+   Keep the heading aligned with the dashboard table card.
+
+   Existing dashboard uses:
+       padding: 0 12px
+       margin-bottom: 10px
+*/
+
+.leave-overview .card-title {
+    padding: 0 12px;
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   TABLE
+   SAME TABLE SYSTEM AS MANAGER DASHBOARD
+========================================================= */
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    font-size: 13px;
+}
+
+
+th,
+td {
+    border: 1px solid #dddddd;
+
+    padding: 10px 12px;
+
+    text-align: left;
+
+    white-space: nowrap;
+}
+
+
+th {
+    background: #fafafa;
+
+    font-weight: 700;
+}
+
+
+tbody tr {
+    background: #ffffff;
+}
+
+
+tbody tr:hover {
+    background: #fffdf1;
+}
+
+
+/* =========================================================
+   EMPLOYEE TABLE IMPROVEMENTS
+========================================================= */
+
+.leave-overview th:first-child,
+.leave-overview td:first-child {
+    min-width: 170px;
+}
+
+
+.leave-overview th:nth-child(2),
+.leave-overview td:nth-child(2) {
+    min-width: 220px;
+}
+
+
+.leave-overview th:nth-child(3),
+.leave-overview td:nth-child(3) {
+    min-width: 190px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 0 18px;
+    }
+
+    .nav-links {
+        margin-left: 20px;
+    }
+
+    .container {
+        width: calc(100% - 30px);
+    }
+
+    .profile-page {
+        grid-template-columns: 1fr;
+    }
+
+    .identity-card {
+        min-height: 300px;
+    }
+
+    .profile-actions {
+        margin-top: 25px;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .navbar {
+        height: auto;
+        min-height: 64px;
+
+        flex-wrap: wrap;
+
+        padding: 12px 15px;
+
+        gap: 12px;
+    }
+
+    .nav-links {
+        order: 3;
+
+        width: 100%;
+        height: 42px;
+
+        justify-content: center;
+
+        margin: 0;
+    }
+
+    .nav-profile-name {
+        display: none;
+    }
+
+    .profile-page {
+        grid-template-columns: 1fr;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .identity-card {
+        min-height: 280px;
+    }
+
+    .table-wrapper {
+        overflow-x: auto;
+    }
+}

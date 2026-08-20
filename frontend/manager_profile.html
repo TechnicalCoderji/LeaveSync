@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeaveSync - Dashboard</title>
+    <link rel="stylesheet" href="manager_profile.css">
+    <link rel="stylesheet" href="navbar.css">
+    
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="brand">
+            <img src="logo.png" id="logo" alt="LeaveSync Logo">
+        </div>
+        <nav class="nav-links">
+            <a href="#" class="nav-link active">Dashboard</a>
+            <a href="#" class="nav-link">Profile</a>
+        </nav>
+        <!-- PROFILE MENU -->
+        <div class="profile-menu" id="profileMenu">
+            <button type="button" class="profile-trigger" id="profileTrigger" aria-expanded="false">
+                <div class="avatar">AS</div>
+                <span class="profile-name">amansarvaiya</span>
+                <!-- Your SVG -->
+                <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" />
+                </svg>
+            </button>
+
+            <!-- DROPDOWN -->
+            <div class="profile-dropdown" id="profileDropdown">
+                <button type="button" class="dropdown-item logout-item">
+                    <span class="dropdown-icon">↪</span>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="profile-page">
+        <!-- LEFT: IDENTITY CARD -->
+        <div class="card identity-card">
+            <div class="profile-avatar">
+                AS
+            </div>
+            <h2 class="profile-name">
+                amansarvaiya
+            </h2>
+            <span class="role-badge">
+                Employee
+            </span>
+            <div class="profile-divider"></div>
+            <div class="profile-actions">
+                <button class="logout-btn" type="button">
+                    Logout
+                </button>
+            </div>
+        </div>
+
+
+        <!-- RIGHT: DETAILS -->
+        <div class="profile-details">
+            <!-- PERSONAL & WORK DETAILS -->
+            <div class="card details-card">
+                <h2 class="profile-card-title">
+                    Personal &amp; Work Details
+                </h2>
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="detail-label">
+                            Email
+                        </span>
+                        <span class="detail-value">
+                            aman123@gmail.com
+                        </span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">
+                            Organization
+                        </span>
+                        <span class="detail-value">
+                            DIP
+                        </span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">
+                            Role
+                        </span>
+                        <span class="detail-value">
+                            Manager
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LEAVE BALANCE -->
+            <div class="card details-card leave-overview">
+                <h2 class="card-title">
+                    Organization Employees
+                </h2>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Employee</th>
+                                <th>Email</th>
+                                <th>Remaining leave balance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Aman Sarvaiya</td>
+                                <td>aman123@gmail.com</td>
+                                <td>19 days</td>
+                            </tr>
+                            <tr>
+                                <td>Hardik Chauhan</td>
+                                <td>hardik@gmail.com</td>
+                                <td>25 days</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
